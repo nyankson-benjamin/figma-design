@@ -9,7 +9,6 @@ export default function RnDRectangle({ item }: Readonly<RndItemProps>) {
   const { activeObject } = useTabStore();
   return (
     <RnDWrapper item={{item:item}}>
-      {/* Content here */}
       <div
         style={{
           ...rndStyle(item.type, item.bgColor, item.id === activeObject.id),
@@ -17,8 +16,7 @@ export default function RnDRectangle({ item }: Readonly<RndItemProps>) {
         className={`h-full shadow-lg  text-white dark:text-black `}
         tabIndex={0} // Allow div to capture keyboard events
       >
-        {/* {item.text}
-          {item.bgColor} */}
+
       </div>
     </RnDWrapper>
   );

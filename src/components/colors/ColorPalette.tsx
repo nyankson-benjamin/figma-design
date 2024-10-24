@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { colors } from "../../constants/colors";
 import { useTabStore } from "../../store/tabStore";
 import Button from "../buttons/Button";
+import ToggleColorPalette from "./ToggleColorPalette";
 // Function to generate color shades
 const generateShades = (hexColor: string, numberOfShades: number): string[] => {
   const shades: string[] = [];
@@ -39,7 +40,7 @@ const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
 };
 
 const ColorPalette: React.FC = () => {
-  const [activeColor, setActiveColor] = useState("")
+  const [activeColor, setActiveColor] = useState("");
   const { changeObjectColor, activeObject } = useTabStore();
   const setColor = (color: string) => {
     if (!activeObject.id) return;
@@ -50,32 +51,51 @@ const ColorPalette: React.FC = () => {
       color,
       "bg"
     );
-    setActiveColor(color)
+    setActiveColor(color);
   };
+
+  const [showPalette, setShowPalette] = useState(false);
   return (
-    <div onMouseDown={handleMouseDown}>
-      <div className="">
-        <Button text="Remove Color" onClick={() => setColor("")} />
-      </div>
-      <div className="flex flex-wrap justify-center  w-32 h-[80vh] overflow-y-auto cursor-pointer">
-        {colors.map((baseColor, index) => (
-          <div key={index} className="flex flex-col items-center ">
-            <div className="flex flex-wrap w-full">
-              {generateShades(baseColor, 12).map((shade, shadeIndex) => (
-                <div key={shadeIndex} className="flex flex-col items-center">
-                  {/* Color Swatch */}
-                  <div
-                    className={`w-5 h-5 border-gray-300 hover:border-2 ${activeColor===shade ? "border-2 border-white" : ""}`}
-                    style={{ backgroundColor: shade }}
-                    title={shade}
-                    onClick={() => setColor(shade)}
-                  >{activeColor === shade}</div>
-                </div>
-              ))}
-            </div>
+    <div onMouseDown={handleMouseDown} className="flex items-center">
+     
+      
+      {showPalette && (
+        <div>
+          <div className="">
+            <Button text="Remove Color" onClick={() => setColor("")} />
           </div>
-        ))}
-      </div>
+          <div className="flex flex-wrap justify-center  w-32 h-[80vh] overflow-y-auto cursor-pointer">
+            {colors.map((baseColor, index) => (
+              <div key={index} className="flex flex-col items-center ">
+                <div className="flex flex-wrap w-full">
+                  {generateShades(baseColor, 12).map((shade, shadeIndex) => (
+                    <div
+                      key={shadeIndex}
+                      className="flex flex-col items-center"
+                    >
+                      {/* Color Swatch */}
+                      <div
+                        className={`w-5 h-5 border-gray-300 hover:border-2 ${
+                          activeColor === shade ? "border-2 border-white" : ""
+                        }`}
+                        style={{ backgroundColor: shade }}
+                        title={shade}
+                        onClick={() => setColor(shade)}
+                      >
+                        {activeColor === shade}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+       <ToggleColorPalette
+        showPalette={showPalette}
+        togglePalette={() => setShowPalette(!showPalette)}
+      />
     </div>
   );
 };

@@ -21,7 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="flex-grow mt-16 p-4" onMouseDown={handleMouseDown}>
         {children}
         {tabs.length > 0 && (
-          <div className="absolute  bottom-10 left-1/2 transform -translate-x-1/2 z-[100] bg-white shadow-md p-5 rounded-2xl">
+          <div >
             <ToolsBar />
           </div>
         )}
