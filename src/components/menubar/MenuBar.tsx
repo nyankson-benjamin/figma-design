@@ -14,9 +14,9 @@ export default function MenuBar() {
   };
 
   return (
-    <div className="bg-mainBg flex items-center gap-3 w-full">
+    <div className="flex items-center gap-3 w-full shadow-md p-3">
       <HomeIcon />
-      {tabs.length>0 && <Tab />}
+      {tabs.length > 0 && <Tab />}
       <IconButton onClick={handleAddTab}>
         <PlusIcon />
       </IconButton>

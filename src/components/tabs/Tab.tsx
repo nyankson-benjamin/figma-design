@@ -12,7 +12,7 @@ export default function Tab() {
   }, [currentTabId, setCurrentTabId, tabs]);
 
   return (
-    <div className="border-b-2 border-gray-300 overflow-x-auto">
+    <div className=" border-gray-300 overflow-x-auto">
       <ul className="flex ">
         {tabs?.map((tab, idx) => (
           <li key={tab.id} className="">

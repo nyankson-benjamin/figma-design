@@ -12,8 +12,8 @@ export default function TabButton(props: {
   return (
     <div
       className={
-        "border-x py-2 px-3 flex items-center gap-2 cursor-pointer" +
-        (props.isActive ? "  bg-gray-900 " : "  bg-gray-800 ")
+        " py-2 px-3 flex items-center gap-2 cursor-pointer h-full" +
+        (props.isActive ? " border-r  " : " border-none  ")
       }
       onMouseOver={() => setToggleClose(true)}
       onMouseLeave={() => setToggleClose(false)}
@@ -30,7 +30,7 @@ export default function TabButton(props: {
       <button
         className={
           (toggleClose ? " visible " : "invisible") +
-          " bg-gray-500 h-full flex items-center justify-center px-2 rounded-md"
+          "  h-full flex items-center justify-center px-2 rounded-md"
         }
         onClick={() => {
           removeTab(props.tab.id);
