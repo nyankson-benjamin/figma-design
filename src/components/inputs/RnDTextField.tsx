@@ -1,19 +1,14 @@
 import { ChangeEvent } from "react";
-import { isColorLight } from "../../utils/util";
-import { ObjectType } from "../../types/tabStors";
 
-export default function TextField({
+export default function RnDTextField({
   value,
   onChange,
   bgColor,
-  height,
-  type
+
 }: {
   value?: string;
-  height:number
   onChange?: (e:ChangeEvent<HTMLTextAreaElement>) => void;
   bgColor:string,
-  type:ObjectType
 }) {
   const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
@@ -28,7 +23,7 @@ export default function TextField({
         value={value}
         onChange={onChange}
         autoFocus
-        style={{color: type ==="text" ? bgColor : !bgColor ? "black" :isColorLight(bgColor) ? "black" :"white", height:`${height}px`}}
+        style={{color: bgColor}}
         placeholder="Enter text"
       />
     </div>
