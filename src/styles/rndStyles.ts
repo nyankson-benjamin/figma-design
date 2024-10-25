@@ -36,6 +36,10 @@ export const rndStyle = (
         return{
           // ...isActiveStyle(isActive)
         }
+        case "text":
+          return{
+            color:'blue',
+          }
 
     default:
       return { ...isActiveStyle(isActive,bgColor) };
