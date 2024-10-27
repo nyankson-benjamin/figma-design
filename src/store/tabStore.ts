@@ -27,6 +27,22 @@ export const initialObject: ObjectTypes = {
     y: 0,
   },
   tabId: "",
+  // borderWidth: {
+  //   top: 0,
+  //   bottom: 0,
+  //   left: 0,
+  //   right: 0,
+  //   border: 0,
+  // },
+  border: 0,
+  radius: 0,
+  shadowEffect: {
+    horizontal: 0,
+    vertical: 0,
+    blur: 0,
+    color: "",
+    spread: 0
+  }
 };
 
 export const useTabStore = create<StoreType>()(
@@ -119,6 +135,39 @@ export const useTabStore = create<StoreType>()(
             obj.tabId === state.currentTabId &&
             obj.type === type
               ? { ...obj, size }
+              : obj
+          ),
+        }));
+      },
+      updateObjectBorder: (id, type, border) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, border }
+              : obj
+          ),
+        }));
+      },
+      updateObjectRadius: (id, type, radius) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, radius }
+              : obj
+          ),
+        }));
+      },
+      updateObjectShadow: (id, type, shadowEffect) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, shadowEffect }
               : obj
           ),
         }));

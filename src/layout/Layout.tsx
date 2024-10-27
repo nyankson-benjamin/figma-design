@@ -8,6 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const handleMouseDown = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     setActiveObject(initialObject);
+    console.log("propa loyout")
   };
 
   return (

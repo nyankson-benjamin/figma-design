@@ -1,6 +1,8 @@
 import { ChangeEvent } from "react";
 import { isColorLight } from "../../utils/util";
 import { ObjectType } from "../../types/tabStors";
+import { stopPropagation } from "../../constants/propagstion";
+
 
 export default function TextField({
   value,
@@ -15,9 +17,6 @@ export default function TextField({
   bgColor:string,
   type:ObjectType
 }) {
-  const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
-    e.stopPropagation();
-  };
   return (
     <div >
       <textarea

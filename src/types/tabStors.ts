@@ -9,16 +9,35 @@ export type ObjectSize = {
   width: Id;
   height: Id;
 };
+
+export type ObjectBorderWidth = {
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+  border: number;
+};
+
+export type IShadow = {
+  horizontal: number;
+  vertical: number;
+  blur: number;
+  color: string;
+  spread:number
+};
 export type ObjectTypes = {
   id: Id;
   text: string;
   bgColor: string;
   borderColor: string;
-  radius?: number;
+  radius: number;
   type: ObjectType;
   size: ObjectSize;
   position: ObjectPosition;
   tabId: Id;
+  // borderWidth:ObjectBorderWidth
+  border: number;
+  shadowEffect: IShadow;
 };
 export type Tab = {
   tabId: Id;
@@ -57,5 +76,8 @@ export type StoreType = {
   setCurrentTabId: (tabId: Id) => void;
   activeObject: ObjectTypes;
   setActiveObject: (selectedObjec: ObjectTypes) => void;
-  duplicateObject: (position:ObjectPosition) => void;
+  duplicateObject: (position: ObjectPosition) => void;
+  updateObjectBorder: (id: Id, typpe: ObjectType, border: number) => void;
+  updateObjectRadius: (id: Id, typpe: ObjectType, radius: number) => void;
+  updateObjectShadow: (id: Id, typpe: ObjectType, shadow: IShadow) => void;
 };

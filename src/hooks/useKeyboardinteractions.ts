@@ -14,8 +14,9 @@ export default function useKeyBoardInteractions() {
         x: activeObject.position.x + 100,
         y: activeObject.position.y + 100,
       };
-      e.preventDefault(); // Prevent default browser action for Ctrl + D
-      e.stopPropagation();
+      console.log('hhh')
+      // e.preventDefault(); // Prevent default browser action for Ctrl + D
+      // e.stopPropagation();
       e.stopImmediatePropagation();
       if (e.ctrlKey && e.key === "d") {
         duplicateObject(position);
