@@ -9,9 +9,9 @@ export default function useRnDComponent() {
   const addObjectToScreen = (objectType: ObjectType) => {
     const objectToAdd: ObjectTypes = {
       id: uuidv4(),
-      text: `Item ${tabs.length+1}`,
+      text: `Item ${tabs.length + 1}`,
       bgColor: "",
-      borderColor: "string",
+      borderColor: "black",
       radius: objectType === "oval" ? 100 : 0,
       type: objectType,
       size: {
@@ -22,7 +22,27 @@ export default function useRnDComponent() {
         x: random / 100 + 100,
         y: random / 100 + 100,
       },
-      tabId:currentTabId
+      tabId: currentTabId,
+      // borderWidth: {
+      //   top: 0,
+      //   bottom: 0,
+      //   left: 0,
+      //   right: 0,
+      //   border: 4
+      // },
+      border: 0,
+      shadowEffect: {
+        horizontal: 0,
+        vertical: 0,
+        blur: 0,
+        color: "",
+        spread: 0
+      },
+      objectBoarder: {
+        color: "",
+        radius: 0,
+        width: 0
+      }
     };
 
     addObject(objectToAdd);

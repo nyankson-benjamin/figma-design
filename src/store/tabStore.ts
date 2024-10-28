@@ -27,6 +27,20 @@ export const initialObject: ObjectTypes = {
     y: 0,
   },
   tabId: "",
+  border: 0,
+  radius: 0,
+  shadowEffect: {
+    horizontal: 0,
+    vertical: 0,
+    blur: 0,
+    color: "",
+    spread: 0
+  },
+  objectBoarder: {
+    color: "",
+    radius: 0,
+    width: 0
+  }
 };
 
 export const useTabStore = create<StoreType>()(
@@ -78,7 +92,6 @@ export const useTabStore = create<StoreType>()(
       addObject(newObject) {
         set((state) => ({
           objects: [...state.objects, newObject],
-          activeObject: newObject,
         }));
       },
       removeObject() {
@@ -119,6 +132,50 @@ export const useTabStore = create<StoreType>()(
             obj.tabId === state.currentTabId &&
             obj.type === type
               ? { ...obj, size }
+              : obj
+          ),
+        }));
+      },
+      updateObjectBorder: (id, type, border) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, border }
+              : obj
+          ),
+        }));
+      },
+      updateObjectRadius: (id, type, radius) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, radius }
+              : obj
+          ),
+        }));
+      },
+      updateObjectShadow: (id, type, shadowEffect) => {
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId &&
+            obj.type === type
+              ? { ...obj, shadowEffect }
+              : obj
+          ),
+        }));
+      },
+      updateBoarder: (id, objectBoarder) => {
+        console.log(id,)
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId
+              ? { ...obj, objectBoarder }
               : obj
           ),
         }));

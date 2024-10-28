@@ -29,7 +29,6 @@ export const rndStyle = (
     case "rectangle":
       return {
         background: bgColor,
-        borderRadius: "0%",
         ...isActiveStyle(isActive,bgColor),
       };
       case "star":
