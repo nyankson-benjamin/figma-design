@@ -1,10 +1,11 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useTabStore } from "../../../../../store/tabStore";
 import TextLabel from "../../../../TextLabel";
 import BorderInput from "../border/border-width/BorderInput";
 import ColorPicker from "../ColorPicker";
 import { IShadow } from "../../../../../types/tabStors";
 import BoxItemsWrapper from "../BoxItemsWrapper";
+import Button from "../../../../buttons/Button";
 
 export default function BoxShadow() {
   const { activeObject, updateObjectShadow } = useTabStore();
@@ -14,7 +15,7 @@ export default function BoxShadow() {
     color: activeObject.shadowEffect?.color,
     horizontal: activeObject.shadowEffect?.horizontal,
     vertical: activeObject.shadowEffect?.vertical,
-    spread:activeObject.shadowEffect?.spread
+    spread: activeObject.shadowEffect?.spread,
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +24,6 @@ export default function BoxShadow() {
       ...prevInputs,
       [name]: value,
     }));
-    updateObjectShadow(activeObject.id, activeObject.type, shadow);
   };
 
   const getColor = (color: string) => {
@@ -31,14 +31,24 @@ export default function BoxShadow() {
       ...prev,
       color: color,
     }));
-
-    updateObjectShadow(activeObject.id, activeObject.type, shadow);
   };
+
+  const clearShadow = () => {
+    setShadow({
+      blur: 0,
+      color: "",
+      horizontal: 0,
+      spread: 0,
+      vertical: 0,
+    });
+  };
+
+  useEffect(() => {
+    updateObjectShadow(activeObject.id, activeObject.type, shadow);
+  }, [activeObject.id, activeObject.type, shadow, updateObjectShadow]);
 
   return (
     <BoxItemsWrapper>
-     
-
       <div>
         <TextLabel label="Horizontal" />
         <BorderInput
@@ -85,6 +95,7 @@ export default function BoxShadow() {
           name="spread"
         />
       </div>
+      <Button text="Clear shadow" onClick={clearShadow} />
     </BoxItemsWrapper>
   );
 }

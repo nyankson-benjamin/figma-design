@@ -25,6 +25,12 @@ export type IShadow = {
   color: string;
   spread:number
 };
+
+export type IBorder ={
+  color:string,
+  radius:number,
+  width:number
+}
 export type ObjectTypes = {
   id: Id;
   text: string;
@@ -38,6 +44,7 @@ export type ObjectTypes = {
   // borderWidth:ObjectBorderWidth
   border: number;
   shadowEffect: IShadow;
+  objectBoarder:IBorder
 };
 export type Tab = {
   tabId: Id;
@@ -80,4 +87,5 @@ export type StoreType = {
   updateObjectBorder: (id: Id, typpe: ObjectType, border: number) => void;
   updateObjectRadius: (id: Id, typpe: ObjectType, radius: number) => void;
   updateObjectShadow: (id: Id, typpe: ObjectType, shadow: IShadow) => void;
+  updateBoarder:(id:Id, objectBoarder:IBorder)=>void
 };

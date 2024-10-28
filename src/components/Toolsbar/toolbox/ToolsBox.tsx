@@ -1,5 +1,5 @@
 import Accordion from "../../Accordion";
-import BorderComponents from "./tools/border/BorderComponents";
+import BorderWidth from "./tools/border/border-width/BorderWidth";
 import BoxShadow from "./tools/box-shadow/BoxShadow";
 // import ObjectSize from "./tools/size/ObjectSize";
 export default function ToolsBox() {
@@ -16,7 +16,7 @@ export default function ToolsBox() {
         <ObjectSize />
       </Accordion> */}
       <Accordion title="Border">
-        <BorderComponents />
+        <BorderWidth />
       </Accordion>
 
       <Accordion title="Shadow">

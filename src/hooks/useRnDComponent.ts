@@ -37,6 +37,11 @@ export default function useRnDComponent() {
         blur: 0,
         color: "",
         spread: 0
+      },
+      objectBoarder: {
+        color: "",
+        radius: 0,
+        width: 0
       }
     };
 

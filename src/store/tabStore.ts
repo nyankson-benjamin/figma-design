@@ -35,6 +35,11 @@ export const initialObject: ObjectTypes = {
     blur: 0,
     color: "",
     spread: 0
+  },
+  objectBoarder: {
+    color: "",
+    radius: 0,
+    width: 0
   }
 };
 
@@ -160,6 +165,17 @@ export const useTabStore = create<StoreType>()(
             obj.tabId === state.currentTabId &&
             obj.type === type
               ? { ...obj, shadowEffect }
+              : obj
+          ),
+        }));
+      },
+      updateBoarder: (id, objectBoarder) => {
+        console.log(id,)
+        set((state) => ({
+          objects: state.objects.map((obj) =>
+            obj.id === id &&
+            obj.tabId === state.currentTabId
+              ? { ...obj, objectBoarder }
               : obj
           ),
         }));
