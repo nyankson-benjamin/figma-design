@@ -7,9 +7,7 @@ type IColorProps={
 export default function ColorPicker({handleColor, initial}:IColorProps) {
   const [color, setColor] = useState(initial);
 
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setColor(e.target.value);
     
     handleColor(e.target.value)

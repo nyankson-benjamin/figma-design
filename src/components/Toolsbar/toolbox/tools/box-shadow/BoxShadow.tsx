@@ -4,6 +4,7 @@ import TextLabel from "../../../../TextLabel";
 import BorderInput from "../border/border-width/BorderInput";
 import ColorPicker from "../ColorPicker";
 import { IShadow } from "../../../../../types/tabStors";
+import BoxItemsWrapper from "../BoxItemsWrapper";
 
 export default function BoxShadow() {
   const { activeObject, updateObjectShadow } = useTabStore();
@@ -35,7 +36,7 @@ export default function BoxShadow() {
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <BoxItemsWrapper>
      
 
       <div>
@@ -84,6 +85,6 @@ export default function BoxShadow() {
           name="spread"
         />
       </div>
-    </div>
+    </BoxItemsWrapper>
   );
 }

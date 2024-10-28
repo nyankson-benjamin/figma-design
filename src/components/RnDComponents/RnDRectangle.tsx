@@ -13,7 +13,7 @@ export default function RnDRectangle({ item }: Readonly<RndItemProps>) {
     <RnDWrapper item={{ item: item }}>
       <div
         style={{
-          ...rndStyle(item.type, item.bgColor, item.id === activeObject.id), border:`${item.border || 1}px solid ${item.borderColor}`, borderRadius:`${item.radius}px`, boxShadow:`${item.shadowEffect.horizontal}px ${item.shadowEffect.vertical}px ${item.shadowEffect.blur}px ${item.shadowEffect.spread}px ${item.shadowEffect.color}`
+          ...rndStyle(item.type, item.bgColor, item.id === activeObject.id), border:`${item.border || 1}px solid ${item.borderColor}`, borderRadius:`${item.radius}px`, boxShadow:`${item.shadowEffect.horizontal}px ${item.shadowEffect.vertical}px ${item.shadowEffect.blur}px ${item.shadowEffect.spread}px ${!item.shadowEffect.color ? 'black' : item.shadowEffect.color}`
         }} 
         className={`h-full  text-white dark:text-black `}
         tabIndex={0} // Allow div to capture keyboard events

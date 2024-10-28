@@ -1,5 +1,6 @@
 import { useTabStore } from "../../../../../store/tabStore";
 import TextLabel from "../../../../TextLabel";
+import BoxItemsWrapper from "../BoxItemsWrapper";
 import ColorPicker from "../ColorPicker";
 import BorderWidth from "./border-width/BorderWidth";
 
@@ -16,7 +17,7 @@ export default function BorderComponents() {
           );
     }
   return (
-    <div className="flex flex-col gap-3">
+    <BoxItemsWrapper>
       <div>
         <TextLabel label="Border color"/>
         <ColorPicker handleColor={handleColor} initial={activeObject.borderColor} />
@@ -25,6 +26,6 @@ export default function BorderComponents() {
       <div>
         <BorderWidth />
       </div>
-    </div>
+    </BoxItemsWrapper>
   );
 }

@@ -13,7 +13,7 @@ export default function Accordion({
     setOpen((prev) => !prev);
   };
   return (
-    <div className="border p-2 shadow-sm rounded-lg flex flex-col gap-5">
+    <div className="border p-2 shadow-sm rounded-lg flex flex-col gap-1">
       <div className="flex items-center justify-between w-full" onClick={toggle}>
         <p className="font-bold text-lg">{title}</p>
         <ToggleUpDownArrow  open={open} />

@@ -27,13 +27,6 @@ export const initialObject: ObjectTypes = {
     y: 0,
   },
   tabId: "",
-  // borderWidth: {
-  //   top: 0,
-  //   bottom: 0,
-  //   left: 0,
-  //   right: 0,
-  //   border: 0,
-  // },
   border: 0,
   radius: 0,
   shadowEffect: {
@@ -94,7 +87,6 @@ export const useTabStore = create<StoreType>()(
       addObject(newObject) {
         set((state) => ({
           objects: [...state.objects, newObject],
-          activeObject: newObject,
         }));
       },
       removeObject() {
